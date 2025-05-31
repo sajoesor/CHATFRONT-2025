@@ -1,180 +1,120 @@
-/* 🌟 Variables globales */
 :root {
-  margin: auto;
-  font-family: 'Arial', sans-serif;
-  line-height: 1.8;
-  font-weight: 400;
-  color: #fff;
-  background: linear-gradient(135deg, #141e30, #243b55); /* Fondo moderno */
+  --color-bg: #f9fafb;
+  --color-primary: #2563eb;
+  --color-secondary: #4f46e5;
+  --color-text: #1f2937;
+  --color-light: #ffffff;
+  --color-muted: #6b7280;
+  --radius: 12px;
 }
 
-/* 🎭 Estilo general del cuerpo */
 body {
   margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-/* 📦 Contenedor principal */
 .assistant-layout {
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  max-width: 1300px;
-  background: rgba(255, 255, 255, 0.15); /* Transparencia tipo vidrio */
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(14px);
-  overflow: hidden;
-  padding: 20px;
-  height: auto; /* Ajusta la altura según el contenido */
-  min-height: 60vh; /* No será demasiado pequeño */
-  max-height: 80vh; /* Evita que crezca demasiado */
+  width: 100%;
+  max-width: 800px;
+  background: var(--color-light);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
-
-/* 🖥️ Cabecera superior con usuario */
 .assistant-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  background: linear-gradient(to right, #ff512f, #dd2476);
-  color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background: var(--color-primary);
+  padding: 1rem;
+  color: white;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
 }
 
-/* 📌 Ajuste del botón de cerrar sesión */
 .logout-button {
-  width: 130px;
-  padding: 3px 6px; /* Menos espacio interno */
-  font-size: 0.7rem; /* Texto más pequeño */
-  border-radius: 4px; /* Bordes menos redondeados */
-  border: 1px solid #ffffff; /* Borde más delgado */
-  color: #ffffff;
-  background: none;
-  margin-left: 5px; /* Ajuste de separación */
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 }
-
 .logout-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* 💬 Contenedor del chat */
-.chat-container {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 🏷️ Cabecera del chat */
-.chat-header {
-  text-align: center;
-  padding-bottom: 15px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .chat-header h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #ff512f;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: var(--color-primary);
 }
 
-/* 📦 Área de mensajes */
 .chat-box {
-  flex-grow: 1; /* Permite que crezca dentro del espacio disponible */
-  max-height: 400px; /* Define una altura máxima para evitar la expansión descontrolada */
-  overflow-y: auto; /* Activa el desplazamiento vertical */
-  display: flex;
-  flex-direction: column-reverse; /* Mantiene los mensajes más recientes visibles */
+  background: #f3f4f6;
+  padding: 1rem;
+  height: 400px;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
 }
-
-
-.messages {
-  flex-grow: 1; /* Se ajusta dentro del `chat-box` */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 
 .message {
-  padding: 14px;
-  border-radius: 8px;
-  margin: 10px 0;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius);
   max-width: 80%;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
-/* 📩 Mensaje usuario */
 .user-message {
-  background: linear-gradient(to right, #0077ff, #00c6ff);
-  color: #fff;
+  background: var(--color-secondary);
+  color: white;
   align-self: flex-end;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* 🤖 Mensaje asistente */
 .assistant-message {
-  background: rgba(255, 255, 255, 0.3);
+  background: #e5e7eb;
+  color: #111827;
   align-self: flex-start;
-  color: #222;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* ✏️ Área de entrada corregida */
 .input-area {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-  width: 100%;
-  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-/* 📏 Input con límites */
 .input-area input {
   flex: 1;
-  max-width: 75%;
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  color: #fff;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #d1d5db;
 }
 
-/* 🚀 Botón de enviar dentro de su zona */
 .input-area button {
-  background: linear-gradient(to right, #ff512f, #dd2476);
-    color: #f8f6f6;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    width: 102px;
-    transition: 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
 }
-
 .input-area button:hover {
-  background: linear-gradient(to right, #ff7730, #ff3377);
+  background: #1d4ed8;
 }
 
-/* 📢 Pie de página */
 .assistant-footer {
   text-align: center;
-  padding: 15px;
-  background: linear-gradient(to right, #141e30, #243b55);
-  color: #ffffff;
-  font-size: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
 }
